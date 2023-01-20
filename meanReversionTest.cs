@@ -38,38 +38,38 @@ namespace NinjaTrader.NinjaScript.Strategies
 		{
 			if (State == State.SetDefaults)
 			{
-				Description									= @"Enter the description for your new custom Strategy here.";
-				Name										= "meanReversionTest";
-				Calculate									= Calculate.OnEachTick;
+				Description								= @"Enter the description for your new custom Strategy here.";
+				Name									= "meanReversionTest";
+				Calculate								= Calculate.OnEachTick;
 				EntriesPerDirection							= 1;
 				EntryHandling								= EntryHandling.AllEntries;
-				IsExitOnSessionCloseStrategy				= true;
-				ExitOnSessionCloseSeconds					= 30;
+				IsExitOnSessionCloseStrategy						= true;
+				ExitOnSessionCloseSeconds						= 30;
 				IsFillLimitOnTouch							= false;
 				MaximumBarsLookBack							= MaximumBarsLookBack.TwoHundredFiftySix;
 				OrderFillResolution							= OrderFillResolution.Standard;
-				Slippage									= 0;
+				Slippage								= 0;
 				StartBehavior								= StartBehavior.WaitUntilFlat;
-				TimeInForce									= TimeInForce.Day;
-				TraceOrders									= false;
-				RealtimeErrorHandling						= RealtimeErrorHandling.StopCancelClose;
+				TimeInForce								= TimeInForce.Day;
+				TraceOrders								= false;
+				RealtimeErrorHandling							= RealtimeErrorHandling.StopCancelClose;
 				StopTargetHandling							= StopTargetHandling.PerEntryExecution;
 				BarsRequiredToTrade							= 20;
 				// Disable this property for performance gains in Strategy Analyzer optimizations
 				// See the Help Guide for additional information
-				IsInstantiatedOnEachOptimizationIteration	= true;
-				LongSL										= 60;
-				LongPT										= 60;
-				LongPT2										= 100;
-				ShortSL										= 60;
-				ShortPT										= 60;
-				ShortPT2									= 100;
-				rsiOversold									= 30;
+				IsInstantiatedOnEachOptimizationIteration				= true;
+				LongSL									= 60;
+				LongPT									= 60;
+				LongPT2									= 100;
+				ShortSL									= 60;
+				ShortPT									= 60;
+				ShortPT2								= 100;
+				rsiOversold								= 30;
 				rsiOverbought								= 70;
-				rsiPeriod									= 14;
-				rsiSmooth									= 3;
-				hma1Length									= 14;
-				hma2Length									= 30;
+				rsiPeriod								= 14;
+				rsiSmooth								= 3;
+				hma1Length								= 14;
+				hma2Length								= 30;
 				
 			}
 			else if (State == State.Configure)
@@ -79,10 +79,10 @@ namespace NinjaTrader.NinjaScript.Strategies
 			}
 			else if (State == State.DataLoaded)
 			{				
-				RSI1				= RSI(Close, rsiPeriod, rsiSmooth);
-				HMA1				= HMA(Close, 14);
-				HMA2				= HMA(Close, 30);
-				EMA1				= EMA(Closes[2], 9);
+				RSI1					= RSI(Close, rsiPeriod, rsiSmooth);
+				HMA1					= HMA(Close, hma1Length);
+				HMA2					= HMA(Close, hma2Length);
+				EMA1					= EMA(Closes[2], 9);
 				TSSuperTrend1				= TSSuperTrend(Closes[1], SuperTrendMode.ATR, 14, 2.618, MovingAverageType.HMA, 14, false, false, false);
 				RSI1.Plots[0].Brush = Brushes.DodgerBlue;
 				RSI1.Plots[1].Brush = Brushes.Goldenrod;
