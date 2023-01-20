@@ -44,35 +44,35 @@ namespace NinjaTrader.NinjaScript.Strategies
 		{
 			if (State == State.SetDefaults)
 			{
-				Description									= @"Enter the description for your new custom Strategy here.";
-				Name										= "OfficialBeta1";
-				Calculate									= Calculate.OnBarClose;
+				Description								= @"Enter the description for your new custom Strategy here.";
+				Name									= "OfficialBeta1";
+				Calculate								= Calculate.OnBarClose;
 				EntriesPerDirection							= 1;
 				EntryHandling								= EntryHandling.AllEntries;
-				IsExitOnSessionCloseStrategy				= true;
-				ExitOnSessionCloseSeconds					= 30;
+				IsExitOnSessionCloseStrategy						= true;
+				ExitOnSessionCloseSeconds						= 30;
 				IsFillLimitOnTouch							= false;
 				MaximumBarsLookBack							= MaximumBarsLookBack.TwoHundredFiftySix;
 				OrderFillResolution							= OrderFillResolution.Standard;
-				Slippage									= 0;
+				Slippage								= 0;
 				StartBehavior								= StartBehavior.WaitUntilFlatSynchronizeAccount;
-				TimeInForce									= TimeInForce.Gtc;
-				TraceOrders									= false;
-				RealtimeErrorHandling						= RealtimeErrorHandling.StopCancelClose;
+				TimeInForce								= TimeInForce.Gtc;
+				TraceOrders								= false;
+				RealtimeErrorHandling							= RealtimeErrorHandling.StopCancelClose;
 				StopTargetHandling							= StopTargetHandling.PerEntryExecution;
 				BarsRequiredToTrade							= 20;
 				// Disable this property for performance gains in Strategy Analyzer optimizations
 				// See the Help Guide for additional information
-				IsInstantiatedOnEachOptimizationIteration	= true;
-				LongSL										= 40;
-				LongPT										= 80;
-				LongPT2										= 120;
-				ShortSL										= 40;
-				ShortPT										= 80;
-				ShortPT2									=120;
-				StartTime									= DateTime.Parse("10:30", System.Globalization.CultureInfo.InvariantCulture);
-				StopTime									= DateTime.Parse("14:30", System.Globalization.CultureInfo.InvariantCulture);
-				Flat										= 0;
+				IsInstantiatedOnEachOptimizationIteration				= true;
+				LongSL									= 40;
+				LongPT									= 80;
+				LongPT2									= 120;
+				ShortSL									= 40;
+				ShortPT									= 80;
+				ShortPT2								=120;
+				StartTime								= DateTime.Parse("10:30", System.Globalization.CultureInfo.InvariantCulture);
+				StopTime								= DateTime.Parse("14:30", System.Globalization.CultureInfo.InvariantCulture);
+				Flat									= 0;
 			}
 			else if (State == State.Configure)
 			{
